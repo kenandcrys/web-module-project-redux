@@ -4,14 +4,10 @@ import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
 
-const mapStateToProps = state => {
-    return {
-        movies: state.movies,
-
-    }
-}
 
 const MovieList = (props)=> {
+
+    const { movies } = props;
 
     return (
         <div className="col">
@@ -38,4 +34,11 @@ const MovieList = (props)=> {
     );
 }
 
-export default connect(mapStateToProps, {})(MovieList)
+const mapStateToProps = state => {
+    return {
+        movies: state.movieReducer.movies,
+
+    }
+}
+
+export default connect(mapStateToProps)(MovieList)
